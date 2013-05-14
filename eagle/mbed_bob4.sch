@@ -659,16 +659,16 @@ According to http://www.yageo.com/exep/pages/download/literatures/PYu-R_Mount_5.
 </symbol>
 <symbol name="R_KELVIN">
 <description>Kelvin resistor for current measurement</description>
-<pin name="I1" x="-10.16" y="0" length="middle" direction="pas"/>
-<pin name="I2" x="10.16" y="0" length="middle" direction="pas" rot="R180"/>
+<pin name="I1" x="-10.16" y="0" visible="pad" length="middle" direction="pas"/>
+<pin name="I2" x="10.16" y="0" visible="pad" length="middle" direction="pas" rot="R180"/>
 <wire x1="-5.08" y1="-2.54" x2="-5.08" y2="1.27" width="0.254" layer="94"/>
 <wire x1="-5.08" y1="1.27" x2="-5.08" y2="2.54" width="0.254" layer="94"/>
 <wire x1="-5.08" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
 <wire x1="5.08" y1="2.54" x2="5.08" y2="1.27" width="0.254" layer="94"/>
 <wire x1="5.08" y1="1.27" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="5.08" y1="-2.54" x2="-5.08" y2="-2.54" width="0.254" layer="94"/>
-<pin name="V1" x="-7.62" y="7.62" length="middle" direction="pas" rot="R270"/>
-<pin name="V2" x="7.62" y="7.62" length="middle" direction="pas" rot="R270"/>
+<pin name="V1" x="-7.62" y="7.62" visible="pad" length="middle" direction="pas" rot="R270"/>
+<pin name="V2" x="7.62" y="7.62" visible="pad" length="middle" direction="pas" rot="R270"/>
 <wire x1="-7.62" y1="2.54" x2="-7.62" y2="1.27" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="1.27" x2="-5.08" y2="1.27" width="0.254" layer="94"/>
 <wire x1="7.62" y1="2.54" x2="7.62" y2="1.27" width="0.254" layer="94"/>
@@ -1662,7 +1662,7 @@ Copyright: Würth Elektronik</description>
 </classes>
 <parts>
 <part name="FRAME1" library="frames" deviceset="A4L-LOC" device=""/>
-<part name="K1" library="Wuerth_Elektronik_eiCan_11_Communication_Connectors_2_4" deviceset="651005136521" device=""/>
+<part name="USB" library="Wuerth_Elektronik_eiCan_11_Communication_Connectors_2_4" deviceset="651005136521" device=""/>
 <part name="ETH1" library="connectors" deviceset="CON-RJ45-F" device="_WE100"/>
 <part name="GND11" library="mbed-power" deviceset="GND" device=""/>
 <part name="GND1" library="mbed-power" deviceset="GND" device=""/>
@@ -1706,7 +1706,7 @@ Copyright: Würth Elektronik</description>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
-<instance part="K1" gate="G$1" x="218.44" y="60.96" rot="MR0"/>
+<instance part="USB" gate="G$1" x="218.44" y="60.96" rot="MR0"/>
 <instance part="ETH1" gate="ETH" x="48.26" y="134.62" rot="MR0"/>
 <instance part="GND11" gate="1" x="228.6" y="48.26" rot="MR0"/>
 <instance part="GND1" gate="1" x="190.5" y="154.94" rot="MR180"/>
@@ -1752,7 +1752,7 @@ Copyright: Würth Elektronik</description>
 <nets>
 <net name="USB_D_N" class="0">
 <segment>
-<pinref part="K1" gate="G$1" pin="D-"/>
+<pinref part="USB" gate="G$1" pin="D-"/>
 <wire x1="226.06" y1="63.5" x2="238.76" y2="63.5" width="0.1524" layer="91"/>
 <label x="231.14" y="63.5" size="1.778" layer="95"/>
 </segment>
@@ -1762,15 +1762,9 @@ Copyright: Würth Elektronik</description>
 <pinref part="IC1" gate="G$1" pin="D-"/>
 </segment>
 </net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="K1" gate="G$1" pin="GND"/>
-<wire x1="226.06" y1="55.88" x2="228.6" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="USB_D_P" class="0">
 <segment>
-<pinref part="K1" gate="G$1" pin="D+"/>
+<pinref part="USB" gate="G$1" pin="D+"/>
 <wire x1="226.06" y1="60.96" x2="238.76" y2="60.96" width="0.1524" layer="91"/>
 <label x="231.14" y="60.96" size="1.778" layer="95"/>
 </segment>
@@ -1782,7 +1776,7 @@ Copyright: Würth Elektronik</description>
 </net>
 <net name="VBUS" class="0">
 <segment>
-<pinref part="K1" gate="G$1" pin="VCC"/>
+<pinref part="USB" gate="G$1" pin="VCC"/>
 <wire x1="226.06" y1="66.04" x2="238.76" y2="66.04" width="0.1524" layer="91"/>
 <label x="231.14" y="66.04" size="1.778" layer="95"/>
 </segment>
@@ -1793,10 +1787,6 @@ Copyright: Würth Elektronik</description>
 </segment>
 </net>
 <net name="GND" class="0">
-<segment>
-<wire x1="228.6" y1="48.26" x2="228.6" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="GND11" gate="1" pin="GND"/>
-</segment>
 <segment>
 <wire x1="195.58" y1="152.4" x2="190.5" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="GND1" gate="1" pin="GND"/>
@@ -1871,6 +1861,12 @@ Copyright: Würth Elektronik</description>
 <pinref part="GND10" gate="1" pin="GND"/>
 <wire x1="114.3" y1="48.26" x2="114.3" y2="50.8" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="GND11" gate="1" pin="GND"/>
+<wire x1="228.6" y1="48.26" x2="228.6" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="USB" gate="G$1" pin="GND"/>
+<wire x1="228.6" y1="55.88" x2="226.06" y2="55.88" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -1913,6 +1909,12 @@ Copyright: Würth Elektronik</description>
 <pinref part="IC2" gate="G$1" pin="VCC"/>
 <pinref part="V7" gate="+3V3" pin="+3V3"/>
 <wire x1="114.3" y1="73.66" x2="114.3" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="K3" gate="G$1" pin="1"/>
+<pinref part="V3" gate="+3V3" pin="+3V3"/>
+<wire x1="15.24" y1="71.12" x2="17.78" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="71.12" x2="17.78" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LGC_IN_LV" class="0">
@@ -2105,9 +2107,14 @@ Copyright: Würth Elektronik</description>
 <segment>
 <pinref part="T1" gate="A" pin="G"/>
 <pinref part="K3" gate="G$1" pin="5"/>
-<wire x1="15.24" y1="60.96" x2="22.86" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="60.96" x2="17.78" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="60.96" x2="22.86" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="60.96" x2="22.86" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="22.86" x2="25.4" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="K3" gate="G$1" pin="4"/>
+<wire x1="15.24" y1="63.5" x2="17.78" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="63.5" x2="17.78" y2="60.96" width="0.1524" layer="91"/>
+<junction x="17.78" y="60.96"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -2308,11 +2315,11 @@ Copyright: Würth Elektronik</description>
 </net>
 <net name="N$25" class="0">
 <segment>
-<pinref part="K3" gate="G$1" pin="3"/>
-<wire x1="15.24" y1="66.04" x2="40.64" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="66.04" x2="40.64" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="R8" gate="G$1" pin="I1"/>
+<wire x1="40.64" y1="68.58" x2="40.64" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="73.66" x2="48.26" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="K3" gate="G$1" pin="2"/>
+<wire x1="15.24" y1="68.58" x2="40.64" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$33" class="0">
@@ -2321,14 +2328,39 @@ Copyright: Würth Elektronik</description>
 <wire x1="68.58" y1="73.66" x2="73.66" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="73.66" x2="73.66" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="60.96" x2="27.94" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="60.96" x2="27.94" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="K3" gate="G$1" pin="4"/>
-<wire x1="27.94" y1="63.5" x2="15.24" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="60.96" x2="27.94" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="K3" gate="G$1" pin="3"/>
+<wire x1="27.94" y1="66.04" x2="15.24" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,152.4,157.48,X1,VCC,+3V3,,,"/>
+<approved hash="104,1,114.3,73.66,IC2,VCC,+3V3,,,"/>
+<approved hash="106,1,195.58,147.32,N$18,,,,,"/>
+<approved hash="106,1,195.58,144.78,N$19,,,,,"/>
+<approved hash="106,1,195.58,127,N$20,,,,,"/>
+<approved hash="106,1,195.58,124.46,N$21,,,,,"/>
+<approved hash="106,1,195.58,121.92,N$22,,,,,"/>
+<approved hash="106,1,195.58,116.84,N$23,,,,,"/>
+<approved hash="106,1,231.14,109.22,N$26,,,,,"/>
+<approved hash="106,1,231.14,111.76,N$27,,,,,"/>
+<approved hash="106,1,231.14,144.78,N$28,,,,,"/>
+<approved hash="106,1,231.14,147.32,N$29,,,,,"/>
+<approved hash="106,1,231.14,149.86,N$30,,,,,"/>
+<approved hash="115,1,130.071,89.431,FRAME1,,,,,"/>
+<approved hash="115,1,37.1052,43.18,R1,,,,,"/>
+<approved hash="115,1,186.965,78.74,RN2,,,,,"/>
+<approved hash="115,1,157.48,97.5148,R2,,,,,"/>
+<approved hash="115,1,165.1,102.595,R3,,,,,"/>
+<approved hash="115,1,157.48,107.675,R4,,,,,"/>
+<approved hash="115,1,165.1,112.755,R5,,,,,"/>
+<approved hash="115,1,66.04,102.595,R6,,,,,"/>
+<approved hash="115,1,66.04,97.5148,R7,,,,,"/>
+<approved hash="115,1,80.01,113.427,C1,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
