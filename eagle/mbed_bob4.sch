@@ -1703,6 +1703,8 @@ Copyright: Würth Elektronik</description>
 <part name="C2" library="passives" deviceset="C" device="0805_RFLW"/>
 <part name="GND12" library="mbed-power" deviceset="GND" device=""/>
 <part name="R10" library="passives" deviceset="R" device="" technology="0805_RFLW"/>
+<part name="C3" library="passives" deviceset="C" device="0805_RFLW"/>
+<part name="GND13" library="mbed-power" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1749,11 +1751,13 @@ Copyright: Würth Elektronik</description>
 <instance part="R8" gate="G$1" x="58.42" y="73.66" rot="MR180"/>
 <instance part="IC2" gate="G$1" x="114.3" y="60.96"/>
 <instance part="GND10" gate="1" x="114.3" y="48.26" rot="MR0"/>
-<instance part="V7" gate="+3V3" x="114.3" y="78.74"/>
+<instance part="V7" gate="+3V3" x="114.3" y="83.82"/>
 <instance part="R9" gate="G$1" x="121.92" y="101.6" rot="R90"/>
 <instance part="C2" gate="G$1" x="114.3" y="99.06" rot="R180"/>
 <instance part="GND12" gate="1" x="119.38" y="93.98" rot="MR0"/>
 <instance part="R10" gate="G$1" x="22.86" y="17.78" rot="R90"/>
+<instance part="C3" gate="G$1" x="101.6" y="76.2" rot="R180"/>
+<instance part="GND13" gate="1" x="101.6" y="71.12" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -1888,6 +1892,11 @@ Copyright: Würth Elektronik</description>
 <pinref part="GND12" gate="1" pin="GND"/>
 <junction x="119.38" y="93.98"/>
 </segment>
+<segment>
+<pinref part="C3" gate="G$1" pin="1"/>
+<pinref part="GND13" gate="1" pin="GND"/>
+<wire x1="101.6" y1="71.12" x2="101.6" y2="73.66" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -1929,7 +1938,10 @@ Copyright: Würth Elektronik</description>
 <segment>
 <pinref part="IC2" gate="G$1" pin="VCC"/>
 <pinref part="V7" gate="+3V3" pin="+3V3"/>
-<wire x1="114.3" y1="73.66" x2="114.3" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="73.66" x2="114.3" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="101.6" y1="81.28" x2="114.3" y2="81.28" width="0.1524" layer="91"/>
+<junction x="114.3" y="81.28"/>
 </segment>
 <segment>
 <pinref part="K3" gate="G$1" pin="1"/>
